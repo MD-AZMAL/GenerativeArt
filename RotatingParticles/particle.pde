@@ -10,7 +10,7 @@ class Particle {
       inc = noise(random(TWO_PI));
       angle = random(TWO_PI);
       r = random(50,150);
-      freq = 20;
+      freq = 1;
       rad = 5;
       origin = new PVector(width/2,height/2);
    }
@@ -20,7 +20,7 @@ class Particle {
       translate(origin.x,origin.y);
       
       noStroke();
-      fill(255,0,0);
+      fill(255,random(255),0,100);
       ellipseMode(RADIUS);
       ellipse(x(),y(),rad,rad);
       
@@ -29,6 +29,9 @@ class Particle {
    
    void update() {
       angle += inc;
+      r+=noise(angle);
+      if(r > 250)
+        r = 250;
    }
    
    float x() {
