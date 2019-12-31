@@ -9,7 +9,7 @@ class Particle {
    Particle() {
       inc = noise(random(TWO_PI));
       angle = random(TWO_PI);
-      r = random(50,150);
+      r = random(10,150);
       freq = 1;
       rad = 5;
       origin = new PVector(width/2,height/2);
@@ -30,8 +30,6 @@ class Particle {
    void update() {
       angle += inc;
       r+=noise(angle);
-      if(r > 250)
-        r = 250;
    }
    
    float x() {

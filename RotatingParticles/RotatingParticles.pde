@@ -5,7 +5,7 @@ void setup() {
    background(255);
    particles = new ArrayList<Particle>();
    
-   for(int i = 0 ; i < 50 ; i ++) {
+   for(int i = 0 ; i < 25 ; i ++) {
       particles.add(new Particle()); 
    }
 }
