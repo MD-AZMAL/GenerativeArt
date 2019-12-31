@@ -5,6 +5,7 @@ class Particle {
    float freq;
    float rad;
    PVector origin;
+
    
    Particle() {
       inc = noise(random(TWO_PI));
