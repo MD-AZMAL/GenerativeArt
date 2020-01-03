@@ -5,8 +5,16 @@ void setup() {
    background(255);
    particles = new ArrayList<Particle>();
    
-   for(int i = 0 ; i < 25 ; i ++) {
-      particles.add(new Particle()); 
+   float r = random(10,150);
+   int i, j;
+   for(i = 0 ; i < 5 ; i++) {
+     for(j = 0 ; j < particles.size() ; j++) {
+         if(particles.get(j).collide(r)){
+            r = random(10,150);
+            j = -1;
+         }
+     }
+     particles.add(new Particle(r)); 
    }
 
 }
@@ -20,7 +28,7 @@ void draw() {
 }
 
 void fadeFill() {
-   fill(255,255,255,5);
+   fill(255,255,255,15);
    noStroke();
    rect(0,0,width,height);
 }
@@ -28,7 +36,15 @@ void fadeFill() {
 void keyPressed() {
   
    if(key == ' ') {
-      particles.add(new Particle()); 
+       float r = random(10,150);
+       for(int j = 0 ; j < particles.size() ; j++) {
+         if(particles.get(j).collide(r)){
+            println("j : " + j);
+            r = random(10,150);
+            j = -1;
+         }
+       }
+       particles.add(new Particle(r)); 
    }else if (key == 's') {
       saveFrame("flower###.png"); 
    }
